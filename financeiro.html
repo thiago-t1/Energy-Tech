@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Financeiro - EnergyTech</title>
+  <link rel="stylesheet" href="assets/css/modern-style.css">
+  <!-- Se tiver css específico para financeiro, inclua aqui -->
+  <style>
+    /* Ajustes locais rápidos (mantive o visual moderno laranja/escuro) */
+    .financeiro-container { padding: 100px 20px; max-width:1200px; margin:0 auto; }
+    .financeiro-header { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-bottom:30px;}
+    .card { background:var(--light-gray); border-radius:14px; padding:20px; box-shadow:var(--shadow-lg); border:1px solid rgba(255,107,53,0.06); }
+    .table-payments { width:100%; border-collapse: collapse; margin-top:20px; }
+    .table-payments th, .table-payments td { padding:14px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.03); color:var(--text-light); }
+    .status-pendente { color: #ffb347; font-weight:700; }
+    .status-pago { color: #4CAF50; font-weight:700; }
+    .btn-small { padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer; border:none; }
+    .btn-primary-sm { background:var(--gradient-primary); color:var(--white); }
+    .btn-outline { background:transparent; color:var(--primary-orange); border:1px solid rgba(255,107,53,0.2); }
+    /* modal */
+    .modal-pix { position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:5000; background: rgba(0,0,0,0.6); }
+    .modal-pix.active { display:flex; }
+    .modal-pix .modal-content { width:420px; max-width:95%; background:var(--gradient-dark); padding:20px; border-radius:12px; box-shadow:var(--shadow-xl); border:1px solid rgba(255,107,53,0.08); }
+    .modal-pix .qrcode-wrap { display:flex; justify-content:center; margin-bottom:12px; }
+    .copy-btn { cursor:pointer; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,107,53,0.15); background:transparent; color:var(--primary-orange); }
+    .form-row { display:flex; gap:12px; margin-top:12px; }
+    .input { padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:var(--dark-gray); color:var(--white); flex:1; }
+  </style>
+</head>
+<body>
+  <!-- Reutilize sua navbar (copie do index.html) -->
+  <nav class="navbar">
+    <div class="nav-container container">
+      <div class="nav-logo"><i class="fas fa-solar-panel"></i><span class="logo-text">EnergyTech</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="index.html#solutions" class="nav-link">Soluções</a></li>
+        <li><a href="index.html#about" class="nav-link">Sobre Nós</a></li>
+        <li><a href="index.html#objectives" class="nav-link">Objetivos</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-login-nav" id="loginBtn"><i class="fas fa-user"></i> Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="financeiro-container">
+    <div class="financeiro-header">
+      <div>
+        <h1 class="section-title">Financeiro</h1>
+        <p class="section-subtitle">Cadastre cobranças e gere PIX para seus clientes</p>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <button class="btn-small btn-primary-sm" id="btnNewPayment"><i class="fas fa-plus"></i> Novo Lançamento</button>
+        <button class="btn-small btn-outline" id="btnReload"><i class="fas fa-sync"></i> Atualizar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <table class="table-payments" id="paymentsTable">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Valor</th>
+            <th>Vencimento</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="paymentsBody">
+          <!-- preenchido por JS -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Modal - Criar/Editar pagamento -->
+  <div id="modalForm" class="modal-pix">
+    <div class="modal-content card">
+      <h3 id="formTitle">Novo Lançamento</h3>
+
+      <input id="inputClient" class="input" placeholder="Nome do Cliente" />
+      <div class="form-row">
+        <input id="inputValue" class="input" placeholder="Valor (ex: 150.50)" />
+        <input id="inputDue" class="input" placeholder="Vencimento (YYYY-MM-DD)" />
+      </div>
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn-small btn-outline" id="btnCancelForm">Cancelar</button>
+        <button class="btn-small btn-primary-sm" id="btnSaveForm">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal PIX - exibe QR Code e dados -->
+  <div id="modalPix" class="modal-pix">
+    <div class="modal-content">
+      <h3>PIX</h3>
+      <div class="qrcode-wrap" id="qrcode"></div>
+      <p><strong>Chave PIX:</strong> <span id="pixKeyShow"></span> <button class="copy-btn" id="copyPixKey">Copiar</button></p>
+      <p><strong>Valor:</strong> <span id="pixValueShow"></span></p>
+      <p><strong>Vencimento:</strong> <span id="pixDueShow"></span></p>
+      <p><strong>Payload (linha PIX):</strong></p>
+      <textarea id="pixPayload" style="width:100%;height:80px;background:var(--dark-gray);color:var(--white);border-radius:8px;padding:8px;border:1px solid rgba(255,255,255,0.03)"></textarea>
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn-small btn-outline" id="btnClosePix">Fechar</button>
+        <button class="btn-small btn-primary-sm" id="btnMarkPaid">Marcar como Pago</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- seu script financeiro -->
+  <script type="module" src="js/financeiro.js"></script>
+</body>
+</html>

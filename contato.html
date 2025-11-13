@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - EnergyTech</title>
+    <link rel="stylesheet" href="assets/css/modern-style.css">
+    <link rel="stylesheet" href="assets/css/contact-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="solar-loader">
+            <div class="sun"></div>
+            <div class="orbit"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-solar-panel"></i>
+                <span class="logo-text">EnergyTech</span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="index.html#solutions" class="nav-link">Soluções</a></li>
+                <li><a href="index.html#about" class="nav-link">Sobre Nós</a></li>
+                <li><a href="index.html#objectives" class="nav-link">Objetivos</a></li>
+                <li><a href="contato.html" class="nav-link active">Contato</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-login-nav" id="loginBtn">
+                    <i class="fas fa-user"></i> Login
+                </button>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="hero-particles"></div>
+        <div class="container">
+            <h1 class="contact-title" data-aos="fade-down">
+                Fale com a nossa <span class="highlight">Equipe!</span>
+            </h1>
+            <p class="contact-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Energia solar é com a EnergyTech. Entre em contato e transforme o sol em economia!
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Information -->
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="fas fa-solar-panel"></i>
+                            <h2>Estamos Aqui para Ajudar</h2>
+                        </div>
+
+                        <div class="info-items">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Endereço</h4>
+                                    <p>Sorocaba, São Paulo<br>Brasil</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Telefone</h4>
+                                    <p>(11) 9999-9999<br>(11) 3333-3333</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>E-mail</h4>
+                                    <p>contato@energytech.com<br>suporte@energytech.com</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Horário</h4>
+                                    <p>Seg - Sex: 8h às 18h<br>Sáb: 9h às 13h</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-section">
+                            <h4>Siga-nos</h4>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="quick-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-calculator"></i>
+                                Simular Economia
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-download"></i>
+                                Baixar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form id="contactForm" class="contact-form">
+                        <h3>Envie sua Mensagem</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="nome" name="nome" required>
+                                <label for="nome">Nome Completo *</label>
+                                <i class="fas fa-user"></i>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="cpf" name="cpf">
+                                <label for="cpf">CPF</label>
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">E-mail *</label>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="tel" id="telefone" name="telefone" required>
+                                <label for="telefone">Telefone *</label>
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select id="estado" name="estado" required>
+                                    <option value="" disabled selected>Selecione seu Estado *</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                                <label for="estado" class="select-label">Estado *</label>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+
+                            <div class="form-group">
+                                <select id="setor" name="setor" required>
+                                    <option value="" disabled selected>Setor de Interesse *</option>
+                                    <option value="Comercial">Comercial</option>
+                                    <option value="Administrativo">Administração</option>
+                                    <option value="Engenharia">Engenharia</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Suporte">Suporte Técnico</option>
+                                </select>
+                                <label for="setor" class="select-label">Setor *</label>
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <select id="assunto" name="assunto" required>
+                                <option value="" disabled selected>Qual o assunto do seu contato? *</option>
+                                <option value="Orcamento">Orçamento Personalizado</option>
+                                <option value="Duvida">Dúvidas Técnicas</option>
+                                <option value="Parceria">Parceria Comercial</option>
+                                <option value="Franquia">Abertura de Franquia</option>
+                                <option value="Sugestao">Sugestões e Feedback</option>
+                                <option value="Reclamacao">Reclamação</option>
+                            </select>
+                            <label for="assunto" class="select-label">Assunto *</label>
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+                            <label for="mensagem">Sua Mensagem *</label>
+                            <i class="fas fa-pen"></i>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="termos" name="termos" required>
+                            <label for="termos">
+                                Aceito os <a href="#">termos e condições</a> e a <a href="#">política de privacidade</a> da EnergyTech
+                            </label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">
+                                Desejo receber novidades e promoções por e-mail
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Qual o tempo de retorno do investimento?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Em média, o retorno do investimento em energia solar ocorre entre 3 a 5 anos, dependendo do consumo e região.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <h3>Como funciona a manutenção?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A manutenção é mínima, basicamente limpeza dos painéis a cada 6 meses. Oferecemos planos de manutenção preventiva.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <h3>Qual a garantia dos equipamentos?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Os painéis solares têm garantia de 25 anos de eficiência e os inversores de 5 a 10 anos, dependendo do modelo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <h3>Funciona em dias nublados?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Os painéis continuam gerando energia mesmo em dias nublados, apenas com eficiência reduzida.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-overlay">
+                <h3>Visite Nossa Sede</h3>
+                <p>Sorocaba, São Paulo</p>
+                <button class="btn-directions">
+                    <i class="fas fa-route"></i> Como Chegar
+                </button>
+            </div>
+            <!-- Aqui você pode adicionar um iframe do Google Maps -->
+            <div class="map-placeholder"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-solar-panel"></i>
+                        <span>EnergyTech</span>
+                    </div>
+                    <p>Transformando o sol em economia e sustentabilidade para um futuro melhor.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#solutions">Soluções</a></li>
+                        <li><a href="index.html#about">Sobre Nós</a></li>
+                        <li><a href="index.html#objectives">Objetivos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Energia Residencial</a></li>
+                        <li><a href="#">Energia Empresarial</a></li>
+                        <li><a href="#">Fazendas Solares</a></li>
+                        <li><a href="#">Franquias</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@energytech.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Sorocaba, SP</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 <span>EnergyTech</span> - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/modern-script.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
